@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB1EAE75-67E2-4BE3-9CB2-C5E0A4F3ED62}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XOscillo</RootNamespace>
+    <AssemblyName>XOscillo</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acquirers\Acquirer.cs" />
+    <Compile Include="DataBlockAware.cs" />
+    <Compile Include="OscilloSerial.cs" />
+    <Compile Include="Tools\BitDecoder.cs" />
+    <Compile Include="Tools\PeakFinder.cs" />
+    <Compile Include="VizForms\Arduino\AnalogArduino.cs" />
+    <Compile Include="VizForms\Arduino\AnalogArduinoToolStrip.cs" />
+    <Compile Include="VizForms\Arduino\DigitalArduinoToolStrip.cs" />
+    <Compile Include="VizForms\Arduino\DigitalVizArduino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\Arduino\DigitalVizArduino.Designer.cs">
+      <DependentUpon>DigitalVizArduino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizForms\Arduino\DigitalArduino.cs" />
+    <Compile Include="Autodetection\Autodetection.cs" />
+    <Compile Include="Consumer.cs" />
+    <Compile Include="DataBlock.cs" />
+    <Compile Include="DebugConsole.cs" />
+    <Compile Include="DebugConsoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugConsoleForm.Designer.cs">
+      <DependentUpon>DebugConsoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\BandStop.cs" />
+    <Compile Include="Filters\FilterConsumer.cs" />
+    <Compile Include="Filters\Filters.cs" />
+    <Compile Include="Filters\HighPass.cs" />
+    <Compile Include="Filters\LowPass.cs" />
+    <Compile Include="Graph\GraphConsumer.cs" />
+    <Compile Include="ToolStrips\FilteringToolStrip.cs" />
+    <Compile Include="Graph\Graph.cs" />
+    <Compile Include="Graph\GraphFFT.cs" />
+    <Compile Include="Graph\GraphAnalog.cs" />
+    <Compile Include="Graph\GraphDigital.cs" />
+    <Compile Include="Autodetection\ManualSerialPortSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Autodetection\ManualSerialPortSelection.Designer.cs">
+      <DependentUpon>ManualSerialPortSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ring.cs" />
+    <Compile Include="ToolStrips\MyToolbar.cs" />
+    <Compile Include="ToolStrips\OnlyNumbersToolStripTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\DecodeFSK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\DecodeFSK.Designer.cs">
+      <DependentUpon>DecodeFSK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graph\FFT.cs" />
+    <Compile Include="Tools\DecodeBeeper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\DecodeBeeper.Designer.cs">
+      <DependentUpon>DecodeBeeper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DecodeFrequency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\DecodeFrequency.Designer.cs">
+      <DependentUpon>DecodeFrequency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizForms\Arduino\AnalogVizArduino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\Arduino\AnalogVizArduino.Designer.cs">
+      <DependentUpon>AnalogVizArduino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolStrips\CommonToolStrip.cs">
+    </Compile>
+    <Compile Include="VizForms\AnalogVizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\DigitalVizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\FileAnalogVizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\FileDigitalVizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\SerializationHelper.cs" />
+    <Compile Include="VizForms\Teensy\AnalogTeensy.cs" />
+    <Compile Include="VizForms\Teensy\AnalogTeensyToolbar.cs" />
+    <Compile Include="VizForms\Teensy\AnalogVizTeensy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\Teensy\AnalogVizTeensy.Designer.cs">
+      <DependentUpon>AnalogVizTeensy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizForms\Teensy\SerialTeensy.cs" />
+    <Compile Include="VizForms\VizForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\VizForm.Designer.cs">
+      <DependentUpon>VizForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VizForms\Parallax\VizParallax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VizForms\Parallax\VizParallax.Designer.cs">
+      <DependentUpon>VizParallax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent.Designer.cs">
+      <DependentUpon>MDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oscillo.cs" />
+    <Compile Include="VizForms\Arduino\SerialArduino.cs" />
+    <Compile Include="OscilloFile.cs" />
+    <Compile Include="VizForms\Parallax\SerialParallax.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="VizForms\Arduino\DigitalVizArduino.resx">
+      <DependentUpon>DigitalVizArduino.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebugConsoleForm.resx">
+      <DependentUpon>DebugConsoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autodetection\ManualSerialPortSelection.resx">
+      <DependentUpon>ManualSerialPortSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PID\PID.resx">
+      <DependentUpon>PID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DecodeFSK.resx">
+      <DependentUpon>DecodeFSK.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DecodeBeeper.resx">
+      <DependentUpon>DecodeBeeper.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\DecodeFrequency.resx">
+      <DependentUpon>DecodeFrequency.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizForms\Arduino\AnalogVizArduino.resx">
+      <DependentUpon>AnalogVizArduino.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizForms\FileAnalogVizForm.resx">
+      <DependentUpon>FileAnalogVizForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizForms\Teensy\AnalogVizTeensy.resx">
+      <DependentUpon>AnalogVizTeensy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizForms\VizForm.resx">
+      <DependentUpon>VizForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VizForms\Parallax\VizParallax.resx">
+      <DependentUpon>VizParallax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph\GraphControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GraphControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Graph\GraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Graph\GraphControl.Designer.cs">
+      <DependentUpon>GraphControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="VizForms\Parallax\ParallaxToolStrip.cs" />
+    <Compile Include="PID\PID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PID\PID.Designer.cs">
+      <DependentUpon>PID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolStrips\FftToolstrip.cs">
+    </Compile>
+    <None Include="Resources\pause.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Content Include="AppMainForm.ico" />
+    <None Include="Resources\oscilloscope.png" />
+    <None Include="Resources\mdi_child.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
